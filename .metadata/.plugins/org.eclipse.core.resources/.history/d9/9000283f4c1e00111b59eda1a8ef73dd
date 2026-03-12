@@ -1,0 +1,5 @@
+package com.monocept.pigGame.model;
+
+public class Player {
+
+}

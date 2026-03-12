@@ -1,0 +1,5 @@
+package com.monocept.NumberGuesser.model;
+
+public class Game {
+
+}
