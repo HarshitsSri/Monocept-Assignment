@@ -2,4 +2,7 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="com.monocept.pigGame.model.GameController"/>
     <fullyQualifiedTypeName name="com.monocept.NumberGuesser.model.GameController"/>
+    <fullyQualifiedTypeName name="com.monocept.InventorySystem.model.Product"/>
+    <fullyQualifiedTypeName name="com.monocept.InventorySystem.util.InputValidator"/>
+    <fullyQualifiedTypeName name="com.monocept.InventorySystem.exception.InventoryException"/>
 </qualifiedTypeNameHistroy>
