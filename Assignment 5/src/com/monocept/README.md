@@ -17,6 +17,120 @@ A console-based Tic Tac Toe game built using Java with a focus on clean architec
 
 ---
 
+## Class Diagram
+
+```mermaid
+classDiagram
+
+%% ================= APP =================
+class Main {
+  +main(String[] args)
+}
+
+%% ================= COMPUTER PACKAGE =================
+class Board {
+  -char[] cells
+  +Board()
+  +checkWinner(char) boolean
+  +getCell(int) char
+  +isCellEmpty(int) boolean
+  +isFull() boolean
+  +placeMove(int, char) void
+  +printBoard() void
+}
+
+class Player {
+  -char symbol
+  +Player(char)
+  +chooseMove(Board) int
+  +getSymbol() char
+}
+
+class Human {
+  -Scanner scanner
+  +Human(char)
+  +chooseMove(Board) int
+}
+
+class Computer {
+  -char opponent
+  +Computer(char, char)
+  +chooseMove(Board) int
+}
+
+class RuleBasedAI {
+  +findBestMove(Board, char, char) int
+  +findWinningMove(Board, char) int
+}
+
+class Game {
+  -Board board
+  -Computer computer
+  -Human human
+  +Game()
+  +start() void
+}
+
+class ComputerGameFacade {
+  -Game game
+  +ComputerGameFacade()
+  +startGame() void
+}
+
+%% ================= HUMAN PACKAGE =================
+class GameFacade {
+  -GameSystem game
+  +GameFacade()
+  +startGame() void
+}
+
+class GameSystem {
+  +start() void
+}
+
+class InitializeBoard {
+  +Board() char[]
+}
+
+class PlayerMove {
+  +move(char[], char, Scanner) char[]
+}
+
+class MoveValidation {
+  +Validation(char[], int) boolean
+}
+
+class CheckWinner {
+  +checkWinner(char[], char) boolean
+}
+
+class PrintBoard {
+  +Board(char[]) void
+}
+
+%% ================= RELATIONSHIPS =================
+
+Main --> ComputerGameFacade : selects
+Main --> GameFacade : selects
+
+%% Computer relationships
+ComputerGameFacade --> Game
+Game --> Board
+Game --> Computer
+Game --> Human
+Player <|-- Human
+Player <|-- Computer
+Computer --> RuleBasedAI
+
+%% Human relationships
+GameFacade --> GameSystem
+GameSystem --> InitializeBoard
+GameSystem --> PlayerMove
+GameSystem --> MoveValidation
+GameSystem --> CheckWinner
+GameSystem --> PrintBoard
+```
+
 ## 🧠 Design Pattern Used
 
 ### Facade Design Pattern
